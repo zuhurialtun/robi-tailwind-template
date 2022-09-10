@@ -1,170 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Admin Template</title>
-    <meta name="author" content="David Grzyb">
-    <meta name="description" content="">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tailwind Admin Template</title>
+        <meta name="author" content="David Grzyb" />
+        <meta name="description" content="" />
 
-    <!-- Tailwind -->
-    <link href="style.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-        .font-family-karla { font-family: karla; }
-        .bg-sidebar { background: #3d68ff; }
-        .cta-btn { color: #3d68ff; }
-        .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
-        .account-link:hover { background: #3d68ff; }
-    </style>
-</head>
-<body class="bg-gray-100 font-family-karla flex">
-
-    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-        <div class="p-6">
-            <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">ROBI Admin</a>
-            <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                <i class="fas fa-plus mr-3"></i> New Report
-            </button>
-        </div>
-        <nav class="text-white text-base font-semibold pt-3">
-            <a href="index.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
-                <i class="fas fa-tachometer-alt mr-3"></i>
-                Dashboard
-            </a>
-            <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-sticky-note mr-3"></i>
-                Blank Page
-            </a>
-            <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-table mr-3"></i>
-                Tables
-            </a>
-            <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-align-left mr-3"></i>
-                Forms
-            </a>
-            <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-tablet-alt mr-3"></i>
-                Tabbed Content
-            </a>
-            <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-calendar mr-3"></i>
-                Calendar
-            </a>
-        </nav>
-    </aside>
-
-    <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
-        <!-- Desktop Header -->
-        <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
-            <div class="w-1/2 navbar-item">
-                <div class="control"><input placeholder="Search everywhere..." class="input outline-none"></div>
-            </div>
-            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                    <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
-                </button>
-                <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
-                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
-                    <a href="login.html" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
-                </div>
-            </div>
-        </header>
-
-        <!-- Mobile Header & Nav -->
-        <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
-            <div class="flex items-center justify-between">
+        <!-- Tailwind -->
+        <link href="style.css" rel="stylesheet" />
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+            .font-family-karla {
+                font-family: karla;
+            }
+            .bg-sidebar {
+                background: #3d68ff;
+            }
+            .cta-btn {
+                color: #3d68ff;
+            }
+            .upgrade-btn:hover {
+                background: #0038fd;
+            }
+            .active-nav-link {
+                background: #1947ee;
+            }
+            .nav-item:hover {
+                background: #1947ee;
+            }
+            .account-link:hover {
+                background: #3d68ff;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100 font-family-karla flex">
+        <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+            <div class="p-6">
                 <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">ROBI Admin</a>
-                <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
-                    <i x-show="!isOpen" class="fas fa-bars"></i>
-                    <i x-show="isOpen" class="fas fa-times"></i>
-                </button>
+                <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center"><i class="fas fa-plus mr-3"></i> New Report</button>
             </div>
-
-            <!-- Dropdown Nav -->
-            <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-                <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+            <nav class="text-white text-base font-semibold pt-3">
+                <a href="index.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                <a href="blank.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-sticky-note mr-3"></i>
                     Blank Page
                 </a>
-                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-table mr-3"></i>
                     Tables
                 </a>
-                <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-align-left mr-3"></i>
                     Forms
                 </a>
-                <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-tablet-alt mr-3"></i>
                     Tabbed Content
                 </a>
-                <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-calendar mr-3"></i>
                     Calendar
                 </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-cogs mr-3"></i>
-                    Support
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-user mr-3"></i>
-                    My Account
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-sign-out-alt mr-3"></i>
-                    Sign Out
-                </a>
             </nav>
-            <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+        </aside>
+
+        <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+            <!-- Desktop Header -->
+            <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+                <div class="w-1/2 navbar-item">
+                    <div class="control"><input placeholder="Search everywhere..." class="input outline-none" /></div>
+                </div>
+                <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+                    <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                        <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" />
+                    </button>
+                    <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
+                    <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+                        <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
+                        <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
+                        <a href="login.html" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Mobile Header & Nav -->
+            <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
+                <div class="flex items-center justify-between">
+                    <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">ROBI Admin</a>
+                    <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
+                        <i x-show="!isOpen" class="fas fa-bars"></i>
+                        <i x-show="isOpen" class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Dropdown Nav -->
+                <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
+                    <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-tachometer-alt mr-3"></i>
+                        Dashboard
+                    </a>
+                    <a href="blank.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                        <i class="fas fa-sticky-note mr-3"></i>
+                        Blank Page
+                    </a>
+                    <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-table mr-3"></i>
+                        Tables
+                    </a>
+                    <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-align-left mr-3"></i>
+                        Forms
+                    </a>
+                    <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-tablet-alt mr-3"></i>
+                        Tabbed Content
+                    </a>
+                    <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-calendar mr-3"></i>
+                        Calendar
+                    </a>
+                    <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-cogs mr-3"></i>
+                        Support
+                    </a>
+                    <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-user mr-3"></i>
+                        My Account
+                    </a>
+                    <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-sign-out-alt mr-3"></i>
+                        Sign Out
+                    </a>
+                </nav>
+                <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i class="fas fa-plus mr-3"></i> New Report
             </button> -->
-        </header>
-    
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6">
-                <section class="text-gray-600 body-font">
-                    <div class="container px-5 py-24 mx-auto">
-                        <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
-                                <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                            </svg>
-                        <h1 class="text-3xl text-black pb-6">Dashboard Page</h1>
-                        <p class="leading-relaxed text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil illo voluptatem voluptas dolore asperiores debitis saepe totam, deleniti neque corporis rerum qui perspiciatis dignissimos aperiam facere eveniet cumque ex itaque.
-                        Libero, in eveniet! Excepturi suscipit amet assumenda dolor nobis. Alias ex aliquid accusamus! Saepe cum sint tempore quis ipsum consequatur, ex numquam quia? Amet nesciunt maiores quisquam, aut expedita asperiores!
-                        Corrupti repellendus, culpa fugit velit rem accusamus dicta quas pariatur dignissimos ex fugiat. Dignissimos laudantium mollitia, culpa, obcaecati at deserunt ullam debitis quos excepturi repudiandae deleniti expedita labore consequatur iure.
-                        Inventore corporis aspernatur nulla, pariatur consequuntur itaque ea qui suscipit voluptates minima voluptatum nostrum, consectetur ex! Aspernatur aliquid consequuntur ratione, perferendis quibusdam porro. Reprehenderit ipsum sunt deserunt mollitia voluptatibus aut!
-                        Iste corrupti earum error quod voluptatem exercitationem unde dolorem, ducimus excepturi consequatur necessitatibus sequi eius aut, laboriosam soluta architecto temporibus. Exercitationem quaerat odit, laborum cum quae incidunt neque tenetur officia!</p>
-                        <span class="inline-block h-1 w-16 rounded bg-blue-600 mt-8 mb-6"></span>
-                        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">ROBI - Marvin Space</h2>
-                        <p class="text-gray-500">Zuhuri Altun</p>
-                      </div>
-                    </div>
-                  </section>
-                <!-- Content goes here! 😁 -->
-            </main>
-    
-            <footer class="w-full bg-white text-center p-4">
-                <div>
-                    <p>Copyright © 2022 - All right reserved by Marvin Space</p>
-                </div>
-            </footer>
-        </div>
-        
-    </div>
+            </header>
 
-    <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-</body>
+            <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+                <main class="w-full flex-grow p-6">
+                    <section class="text-gray-600 body-font">
+                        <div class="container px-5 py-24 mx-auto">
+                            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
+                                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                </svg>
+                                <h1 class="text-3xl text-black pb-6">Dashboard Page</h1>
+                                <p class="leading-relaxed text-lg">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil illo voluptatem voluptas dolore asperiores debitis saepe totam, deleniti neque corporis rerum qui perspiciatis dignissimos aperiam facere eveniet cumque ex itaque. Libero, in eveniet! Excepturi suscipit amet assumenda dolor nobis. Alias ex aliquid accusamus! Saepe cum sint tempore quis ipsum consequatur, ex numquam quia? Amet nesciunt maiores quisquam, aut expedita asperiores! Corrupti repellendus, culpa fugit velit rem accusamus dicta quas pariatur dignissimos ex fugiat. Dignissimos laudantium mollitia, culpa, obcaecati at deserunt ullam debitis quos excepturi repudiandae deleniti expedita labore consequatur iure. Inventore corporis aspernatur nulla, pariatur consequuntur itaque ea qui suscipit voluptates minima voluptatum nostrum, consectetur ex! Aspernatur aliquid consequuntur ratione, perferendis quibusdam porro. Reprehenderit ipsum sunt deserunt mollitia voluptatibus aut! Iste
+                                    corrupti earum error quod voluptatem exercitationem unde dolorem, ducimus excepturi consequatur necessitatibus sequi eius aut, laboriosam soluta architecto temporibus. Exercitationem quaerat odit, laborum cum quae incidunt neque tenetur officia!
+                                </p>
+                                <span class="inline-block h-1 w-16 rounded bg-blue-600 mt-8 mb-6"></span>
+                                <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">ROBI - Marvin Space</h2>
+                                <p class="text-gray-500">Zuhuri Altun</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Content goes here! 😁 -->
+                </main>
+
+                <footer class="w-full bg-white text-center p-4">
+                    <div>
+                        <p>Copyright © 2022 - All right reserved by Marvin Space</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- AlpineJS -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <!-- Font Awesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    </body>
 </html>
