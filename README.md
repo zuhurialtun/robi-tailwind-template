@@ -64,3 +64,5 @@ Add your compiled CSS file to the <head> and start using Tailwind’s utility cl
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 ## References
 > [Get started with Tailwind CSS](https://tailwindcss.com/docs/installation)
+> [tailwind-css-kurulum](https://www.belgeci.com/tailwind-css-kurulum.html)
+> [Login Page](https://larainfo.com/blogs/tailwind-css-simple-login-form-example)
