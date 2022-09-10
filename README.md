@@ -63,7 +63,9 @@ Add your compiled CSS file to the <head> and start using Tailwind’s utility cl
 Bulunduğumuz dizine eğer yok ise src klasörü ve public klasörü oluşturuyoruz. Sonrasında **“src”** klasörü altına bir **“styles.css”** dosyası, **“public”** klasörü altına ise bir tane **“index.html”** ve bir adet de **"style.css"** dosyası oluşturalım.
 
 **2. Terminal Ekranından İlk Komutumuzu Çalıştıralım**
+
 ![Open Terminal](https://www.belgeci.com/wp-content/uploads/2022/04/terminal-acilisi-234x300.jpg)
+
 Yukarıdaki menuden Terminal’e tıklıyoruz sonra **New Terminal** dediğimizde ekranın altında bir terminal alanı açılıyor. Oraya gerekli komutumuzu yazıyoruz.
 ```
 npm init -y
@@ -71,14 +73,18 @@ npm init -y
 ve enter a basıyoruz. Bunu yaptıgımızda projemize bir tane **package.json** dosyası eklendiğini göreceğiz. Bu komutu, bir nevi, bu projede npm kullanarak birşeyler yapacağız dercesine bir aktifleştirme komutu gibi düşünebilirsiniz.
 
 **3. NPM ile Tailwind’i İndiriyoruz**
+
 ![File List](http://www.belgeci.com/wp-content/uploads/2022/04/npm-tamam.jpg)
+
 ```
 npm i -D tailwindcss
 ```
 Belirtilen komutu çalıştırıyoruz. Kod eğer düzgün çalıştıysa, sol taraftaki dosya listemizin artık yukarıdaki gibi gözükmesi lazım yani, **node_modules**‘un gelmiş olması lazım.
 
 **4. Tailwindcss.config.js Dosyasında Content kısmını tamımlıyoruz**
+
 ![Tailwindcss.config](https://www.belgeci.com/wp-content/uploads/2022/04/tailwind-config-1.jpg)
+
 **Content** kısmının içerisine çift tırnak içerisinde, tailwind’in hangi dosyaların içerisindeki class isimlerine bakarak css dosyasını oluşturacağını belirliyoruz. Burada *.* gibi ibareler kullanarak bir klasor altındaki tüm html dosyalarına bak şeklinde ifadeler kullanabiliriz. Ancak bizim senaryomuzda şuan sadece index html kullanıldığı için onun direkt adını yazmak yeterli.
 
 > ***Bu projede config içeriği girilmiştir. Eğer gözükmüyor ise aşağıda belirttiğim gibi düzeltebilirsiniz.***
@@ -110,7 +116,9 @@ npx tailwindcss -i ./styles.css -o ./public/style.css --watch
 Belirtilen kodu yazarak bizim için public klasoru içerisine anlık olarak ihtiyacımız kadar olanı dahil edecek bir css dosyası oluşturmasını sağlıyoruz.
 
 **7. Oluşan CSS Dosyasını html sayfalarının içerisinde refere ediyoruz**
+
 ![style.css](https://www.belgeci.com/wp-content/uploads/2022/04/tailwind-index-e-ekle-1.jpg)
+
 ```
 <link href="style.css" rel="stylesheet">
 ```
