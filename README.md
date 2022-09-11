@@ -129,6 +129,8 @@ Belirtilen HTML kodunu kullanmak istediğimiz sayfalarda head etiketi içerisine
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 ## References
-> [Get started with Tailwind CSS](https://tailwindcss.com/docs/installation)
-> [tailwind-css-kurulum](https://www.belgeci.com/tailwind-css-kurulum.html)
-> [Login Page](https://larainfo.com/blogs/tailwind-css-simple-login-form-example)
+> English Installation => [Get started with Tailwind CSS](https://tailwindcss.com/docs/installation)
+
+> Türkçe Kurulum => [tailwind-css-kurulum](https://www.belgeci.com/tailwind-css-kurulum.html)
+
+> Login Page Css => [Login Page](https://larainfo.com/blogs/tailwind-css-simple-login-form-example)
