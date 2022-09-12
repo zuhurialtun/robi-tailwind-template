@@ -214,16 +214,18 @@
                     <div class="box row-start-1 row-span-1 col-start-2 col-end-2">
                         <div class="w-full h-full bg-white shadow rounded border border-transparent">
                             <div class="w-full h-full items-center text-center inline-block align-middle">
-                                <!-- <p class="w-full h-1/2 text-gray-600 text-center font-extrabold text-2xl">Taksimetre Bilgisi</p> -->
-                                <!-- <p class="w-full h-1/2 text-gray-600 font-extrabold text-2xl">24.81 km - 72.64 TL</p> -->
-                                <span class="w-full h-1/2 pt-4 inline-block align-middle font-extrabold text-2xl text-gray-600">Taksimetre Bilgisi</span>
-                                <span class="w-full h-1/2 pt-4 inline-block align-middle font-extrabold text-2xl text-gray-600">24.81 km - 72.64 TL</span>
+                                <span
+                                    class="w-full h-1/2 pt-4 inline-block align-middle font-extrabold text-2xl text-gray-600">Taksimetre
+                                    Bilgisi</span>
+                                <span
+                                    class="w-full h-1/2 pt-4 inline-block align-middle font-extrabold text-2xl text-gray-600">24.81
+                                    km - 72.64 TL</span>
                             </div>
                         </div>
                     </div>
                     <div class="box row-start-2 row-span-4 col-start-2 col-end-2">
                         <div class="w-full h-full bg-white shadow rounded border border-transparent">
-                            
+                            <div class="w-full h-full" id="map"></div>
                         </div>
                     </div>
                 </div>
@@ -400,6 +402,24 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
         integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- Start - Google Map -->
+    <script>
+        function initMap() {
+            var uluru = { lat: 41.112546, lng: 29.020849 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4GxZQF-KXY0S8FR4ui4oD4NnxsNeSXqw&callback=initMap">
+        </script>
+    <!-- Stop - Google Map -->
 </body>
 
 </html>
