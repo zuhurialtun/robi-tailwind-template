@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Admin Template</title>
+    <meta name="author" content="David Grzyb" />
+    <meta name="description" content="" />
+
+    <!-- Tailwind -->
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+
+        .bg-sidebar {
+            background: #3d68ff;
+        }
+
+        .cta-btn {
+            color: #3d68ff;
+        }
+
+        .upgrade-btn:hover {
+            background: #0038fd;
+        }
+
+        .active-nav-link {
+            background: #1947ee;
+        }
+
+        .nav-item:hover {
+            background: #1947ee;
+        }
+
+        .account-link:hover {
+            background: #3d68ff;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-family-karla flex">
+    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+        <div class="p-6">
+            <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">ROBI Admin</a>
+            <button
+                class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center"><i
+                    class="fas fa-plus mr-3"></i> New Report</button>
+        </div>
+        <nav class="text-white text-base font-semibold pt-3">
+            <a href="index.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+                <i class="fas fa-tachometer-alt mr-3"></i>
+                Dashboard
+            </a>
+            <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-sticky-note mr-3"></i>
+                Blank Page
+            </a>
+            <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-table mr-3"></i>
+                Tables
+            </a>
+            <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-align-left mr-3"></i>
+                Forms
+            </a>
+            <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-tablet-alt mr-3"></i>
+                Tabbed Content
+            </a>
+            <a href="calendar.html"
+                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-calendar mr-3"></i>
+                Calendar
+            </a>
+        </nav>
+    </aside>
+
+    <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+        <!-- Desktop Header -->
+        <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+            <div class="w-1/2 navbar-item">
+                <div class="control"><input placeholder="Search everywhere..." class="input outline-none" /></div>
+            </div>
+            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+                <button @click="isOpen = !isOpen"
+                    class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                    <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" />
+                </button>
+                <button x-show="isOpen" @click="isOpen = false"
+                    class="h-full w-full fixed inset-0 cursor-default"></button>
+                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
+                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
+                    <a href="login.html" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Header & Nav -->
+        <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">ROBI
+                    Admin</a>
+                <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
+                    <i x-show="!isOpen" class="fas fa-bars"></i>
+                    <i x-show="isOpen" class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Dropdown Nav -->
+            <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
+                <a href="index.html"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="blank.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                    <i class="fas fa-sticky-note mr-3"></i>
+                    Blank Page
+                </a>
+                <a href="tables.html"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-table mr-3"></i>
+                    Tables
+                </a>
+                <a href="forms.html"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-align-left mr-3"></i>
+                    Forms
+                </a>
+                <a href="tabs.html"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-tablet-alt mr-3"></i>
+                    Tabbed Content
+                </a>
+                <a href="calendar.html"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-calendar mr-3"></i>
+                    Calendar
+                </a>
+                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-cogs mr-3"></i>
+                    Support
+                </a>
+                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-user mr-3"></i>
+                    My Account
+                </a>
+                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Sign Out
+                </a>
+            </nav>
+            <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-plus mr-3"></i> New Report
+            </button> -->
+        </header>
+
+        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+            <main class="w-full flex-grow p-6">
+                <!-- Start - Content goes here! -->
+                <div class="grid overflow-hidden grid-cols-2 grid-rows-5 gap-2">
+                    <div class="box row-start-1 row-span-3 col-start-1 col-end-1">
+                        <div class="w-full h-full bg-white shadow rounded border border-transparent">
+                            <div class="h-4/5 w-full checker-bg flex items-center justify-center p-4 text-blue-500">
+                                <div class="w-56 h-56 bg-gray-100 rounded-md bg-cover bg-center"
+                                    style="background-image: url('https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                                </div>
+                            </div>
+                            <div class="h-1/5 p-4 border-t border-gray-200">
+                                <div class="flex items-center text-center justify-between">
+                                    <h1 class="w-full text-gray-600 font-extrabold text-2xl">Zuhuri Altun</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box row-start-4 row-span-2 col-start-1 col-end-1">
+                        <div class="w-full h-full bg-white shadow rounded border border-transparent">
+                            <table class="bg-white text-gray-600 w-full shadow-none">
+                                <tbody>
+                                    <tr class="text-gray-600">
+                                        <td class="p-2 pl-4 text-lg">Ad Soyad</td>
+                                        <td class="p-2 pl-4 text-lg">Zuhuri Altun</td>
+                                    </tr>
+                                    <tr class="text-gray-600">
+                                        <td class="p-2 pl-4 text-lg">TC Kimlik</td>
+                                        <td class="p-2 pl-4 text-lg">11111111111</td>
+                                    </tr>
+                                    <tr class="text-gray-600">
+                                        <td class="p-2 pl-4 text-lg">Şoför Kartı No</td>
+                                        <td class="p-2 pl-4 text-lg">A22C5SD8AS</td>
+                                    </tr>
+                                    <tr class="text-gray-600">
+                                        <td class="p-2 pl-4 text-lg">Geçerlilik Süresi</td>
+                                        <td class="p-2 pl-4 text-lg">25.05.2025</td>
+                                    </tr>
+                                    <tr class="text-gray-600">
+                                        <td class="p-2 pl-4 text-lg">Çalışma Süresi</td>
+                                        <td class="p-2 pl-4 text-lg">06:45:30</td>
+                                    </tr>
+                                    <tr class="text-gray-600">
+                                        <td class="p-2 pl-4 text-lg">Taksi Puanı</td>
+                                        <td class="p-2 pl-4 text-lg">85 / 100</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box row-start-1 row-span-1 col-start-2 col-end-2">
+                        <div class="w-full h-full bg-white shadow rounded border border-transparent">
+                            <div class="w-full h-full items-center text-center inline-block align-middle">
+                                <!-- <p class="w-full h-1/2 text-gray-600 text-center font-extrabold text-2xl">Taksimetre Bilgisi</p> -->
+                                <!-- <p class="w-full h-1/2 text-gray-600 font-extrabold text-2xl">24.81 km - 72.64 TL</p> -->
+                                <span class="w-full h-1/2 pt-4 inline-block align-middle font-extrabold text-2xl text-gray-600">Taksimetre Bilgisi</span>
+                                <span class="w-full h-1/2 pt-4 inline-block align-middle font-extrabold text-2xl text-gray-600">24.81 km - 72.64 TL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box row-start-2 row-span-4 col-start-2 col-end-2">
+                        <div class="w-full h-full bg-white shadow rounded border border-transparent">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-12">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-list mr-3"></i> Driver Information
+                    </p>
+                    <div class="bg-white overflow-auto">
+                        <table class="min-w-full leading-normal">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        User
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Rol
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Created at
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Status
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <img class="w-full h-full rounded-full"
+                                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                    alt="" />
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    Vera Carpenter
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">Admin</p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Jan 21, 2020
+                                        </p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <span
+                                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                            <span aria-hidden
+                                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                            <span class="relative">Activo</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <img class="w-full h-full rounded-full"
+                                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                    alt="" />
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    Blake Bowman
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">Editor</p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Jan 01, 2020
+                                        </p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <span
+                                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                            <span aria-hidden
+                                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                            <span class="relative">Activo</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <img class="w-full h-full rounded-full"
+                                                    src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                    alt="" />
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    Dana Moore
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">Editor</p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Jan 10, 2020
+                                        </p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <span
+                                            class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
+                                            <span aria-hidden
+                                                class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
+                                            <span class="relative">Suspended</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-5 bg-white text-sm">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <img class="w-full h-full rounded-full"
+                                                    src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
+                                                    alt="" />
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    Alonzo Cox
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-5 py-5 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">Admin</p>
+                                    </td>
+                                    <td class="px-5 py-5 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">Jan 18, 2020</p>
+                                    </td>
+                                    <td class="px-5 py-5 bg-white text-sm">
+                                        <span
+                                            class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                            <span aria-hidden
+                                                class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                                            <span class="relative">Inactive</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Stop - Content goes here! -->
+            </main>
+
+            <footer class="w-full bg-white text-center p-4">
+                <div>
+                    <p>Copyright © 2022 - All right reserved by Marvin Space</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+</body>
+
+</html>
