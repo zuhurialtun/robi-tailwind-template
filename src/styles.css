@@ -1,5 +1,15 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
+
+.box {
+    @apply bg-indigo-700 text-gray-100 min-w-full h-32 min-h-full rounded;
+}
+
+.table { @apply text-gray-600 w-full shadow-none }
+.table th { @apply text-gray-600 p-2 }
+.table th:nth-child(1) { @apply w-auto } 
+.table th:nth-child(2) { @apply w-auto } 
+.table tr:nth-child(odd) { @apply text-blue-900 }
+.table tr:nth-child(even) { @apply text-blue-900 }
+.table td { @apply p-2 pl-4 text-lg}
